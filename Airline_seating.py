@@ -13,13 +13,16 @@ def print_seats(big_list,rows,seats):
     while counter < rows:
         seat_list.append(big_list[0:seats])
         counter +=1
-    print(seat_list)
+    return seat_list
 
 
-def choose_seats(rows,seats):
+def choose_seats(seat_list):
     loop = True
     while loop == True:
         seat = input("Input seat number (row seat): ")
+        chosen = seat.split(" ")
+        if int(chosen[0]) < 1 or int(chosen[0]) > len(seat_list) or chosen[1] not in seat_list[int(chosen[0])-1]:
+            print("Invalid seat!")
         #búa til fall til að taka frá sæti
         more = input("More seats (y/n)? ")
         if more == "n":
@@ -28,13 +31,9 @@ def choose_seats(rows,seats):
 
 
 
-
-
-
-
 def main():
     rows, seats = input_plane()
-    print_seats(big_list,rows,seats)
-    choose_seats(rows, seats)
+    seat_list = print_seats(big_list,rows,seats)
+    choose_seats(seat_list)
 
 main()
