@@ -1,13 +1,13 @@
 big_list = ["A","B","C","D","E","F","G","H","I"]
 
 
-def input_plane():
+def input_plane(): #Fáum fjölda af röðum og sætafjöldan í hverri röð
     rows = int(input("Enter number of rows: "))
     seats = int(input("Enter number of seats in each row: "))
     return rows , seats
 
 
-def print_seats(big_list,rows,seats):
+def to_seats_list(big_list,rows,seats): # Notum raða- og sætafjöldan til að búa til lista með öllum sætum
     seat_list = []
     counter = 0
     while counter < rows:
@@ -19,6 +19,7 @@ def print_seats(big_list,rows,seats):
 def choose_seats(seat_list):
     loop = True
     while loop == True:
+        #búa til fall til að prenta út listann
         seat = input("Input seat number (row seat): ")
         chosen = seat.split(" ")
         if int(chosen[0]) < 1 or int(chosen[0]) > len(seat_list) or chosen[1] not in seat_list[int(chosen[0])-1]:
@@ -33,7 +34,7 @@ def choose_seats(seat_list):
 
 def main():
     rows, seats = input_plane()
-    seat_list = print_seats(big_list,rows,seats)
+    seat_list = to_seats_list(big_list,rows,seats)
     choose_seats(seat_list)
 
 main()
