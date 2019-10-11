@@ -15,11 +15,18 @@ def to_seats_list(big_list,rows,seats): # Notum raða- og sætafjöldan til að 
         counter +=1
     return seat_list
 
+def print_seats(seat_list):
+    seat_list = list(seat_list)
+    for i in seat_list:
+        for x in i:
+            print("{0:2},{1:3},{2:3}".format(1,2,3))
+
 
 def choose_seats(seat_list):
     loop = True
     while loop == True:
         #búa til fall til að prenta út listann
+        print_seats(seat_list)
         seat = input("Input seat number (row seat): ")
         chosen = seat.split(" ")
         if int(chosen[0]) < 1 or int(chosen[0]) > len(seat_list) or chosen[1] not in seat_list[int(chosen[0])-1]:
