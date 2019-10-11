@@ -7,8 +7,11 @@ def choose_seats(rows,seats):
     loop = True
     while loop == True:
         seat = input("Input seat number (row seat): ")
+        #búa til fall til að taka frá sæti
         more = input("More seats (y/n)? ")
-        if more == n
+        if more == "n":
+            loop = False
+        
 
 
 
@@ -26,3 +29,4 @@ def choose_seats(rows,seats):
 
 def main():
     rows, seats = input_plane()
+    choose_seats(rows, seats)
