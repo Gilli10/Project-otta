@@ -19,13 +19,21 @@ def print_seats(seat_list):
     meat_list = list(seat_list)
     counter = 0
     half_len = len(meat_list[0]) // 2
-    for line in meat_list:
-        seat_row_1 =' '.join(line[0:half_len])
-        seat_row_2 =' '.join(line[half_len:])
-    for i in meat_list:
+    for i in range(len(meat_list)):
+        seat_row_1 =''.join(meat_list[i][0:half_len])
+        seat_row_2 =''.join(meat_list[i][half_len:])
         counter += 1
         print("{0:2},{1:4},{2:4}".format(counter,seat_row_1,seat_row_2))
 
+
+def reserve_seat(seat_list, chosen):
+    seat_list = list(seat_list)
+    chosen = list(chosen)
+    for x in range(len(seat_list)):
+        if x + 1 == int(chosen[0]):
+            for n, i in enumerate(seat_list[x]):  
+                if i == chosen[1]:
+                    seat_list[x][n] = "X"
 
 def choose_seats(seat_list):
     loop = True
@@ -37,6 +45,7 @@ def choose_seats(seat_list):
         if int(chosen[0]) < 1 or int(chosen[0]) > len(seat_list) or chosen[1] not in seat_list[int(chosen[0])-1]:
             print("Invalid seat!")
         #búa til fall til að taka frá sæti
+        reserve_seat(seat_list,chosen)
         more = input("More seats (y/n)? ")
         if more == "n":
             loop = False
