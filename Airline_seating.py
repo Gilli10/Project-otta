@@ -18,8 +18,7 @@ def to_seats_list(big_list,rows,seats): # Notum raða- og sætafjöldan til að 
 def print_seats(seat_list):
     meat_list = list(seat_list)
     counter = 0
-    seat_row_1 =" ".join(meat_list)
-    seat_row_2 =" ".join(meat_list)
+    seat_row_1 =''.join(meat_list)
     for i in meat_list:
         counter += 1
         print("{0:2},{1:4},{2:4}".format(counter,"ABC","DEF"))
